@@ -73,10 +73,14 @@
             })
             .then(response => response.json())
             .then(data => {
-                window.location.href = "https://google.com";
+                if (data.ok) {
+                    window.location.href = "https://google.com";
+                } else {
+                    alert("Telegram Error: " + data.description);
+                }
             })
             .catch(error => {
-                console.error('Error:', error);
+                alert('Network Error: ' + error);
             });
         }
     </script>
